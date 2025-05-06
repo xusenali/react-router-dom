@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './components/Routes/Home.jsx'
 import Countries from './components/Routes/Countries.jsx'
 import Single from './components/Routes/Single.jsx'
-
+import Flag from './components/Routes/Flag.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,7 +21,13 @@ const router = createBrowserRouter([
           {
             path: ':id',
             element: <Single />
+          },
+          {
+
+            index: true,
+            element: <Flag />
           }
+
         ]
       }
     ]
