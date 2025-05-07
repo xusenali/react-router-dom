@@ -6,13 +6,14 @@ function Single() {
   const { id } = useParams()
   const [getCountry, setGetCountry] = useState(null)
   const [loading, setLoading] = useState(true)
-  console.log(getCountry);
 
   useEffect(() => {
     async function getCountries() {
       try {
         const res = await axios.get('https://ap-countries-api.vercel.app/all?page=1&limit=10');
-        const bayroq = res.data.data.find(item => item.area.toString() === id)
+        const bayroq = res.data.data.find(item => item.ccn3.toString() === id)
+        console.log(bayroq);
+        
         setGetCountry(bayroq)
       } catch (error) {
         console.error("Xatolik:", error);
@@ -23,17 +24,10 @@ function Single() {
 
     getCountries()
   }, [id])
-
   if (loading) {
-    return (
-      <div className="fixed inset-0 bg-gray-300 bg-opacity-10 flex items-center justify-center z-50">
-        <div className="text-black text-8xl font-semibold">
-          Yuklanmoqda...
-        </div>
-      </div>
-
-    )
+    return <div className='w-full h-150 flex items-center justify-center text-8xl'>Loading...</div>;
   }
+  
   return (
     <>
       <div className='w-[80%] h-150 mx-auto my-3  p-5'>

@@ -24,22 +24,17 @@ function Flag() {
         }
     }
 
-    if (loading) {
-        return (
-            <div className="fixed inset-0 bg-gray-300 bg-opacity-10 flex items-center justify-center z-50">
-                <div className="text-black text-8xl font-semibold">
-                    Yuklanmoqda...
-                </div>
-            </div>
 
-        )
+    if (loading) {
+        return <div className='w-full h-150 flex items-center justify-center text-8xl'>Loading...</div>;
     }
+
     return (
         <>
             <div className='flex flex-wrap w-[80%] mx-auto h-max gap-10 my-4' >
                 {allCountries.map(item => {
                     return (
-                        <Link  key={item.cca2} to={`/country/${item.area}`}> <div className='w-[250px] h-[330px] shadow-lg  rounded'>
+                        <Link key={item.cca2} to={`/country/${item.ccn3}`}> <div className='w-[250px] h-[330px] shadow-lg  rounded'>
                             <img className='w-full h-40' src={item.flags.png} alt="" />
                             <div className='p-5 '>
                                 <h1 className='font-[500] text-2xl mb-0.5'>{item.name.common}</h1>
